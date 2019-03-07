@@ -222,6 +222,38 @@ let result = userCheck.test(username);
 
 
 
+/** Regular Expressions: Positive and Negative Lookahead */
+/** Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string. */
+/** A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched. */
+/** A negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present. */
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/;
+let qRegex = /q(?!u)/;
+quit.match(quRegex); // Returns ["q"]
+noquit.match(qRegex); // Returns ["q"]
+
+//Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long and have two consecutive digits.
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{5,})(?=\D*\d{2})/; // Change this line
+let result = pwRegex.test(sampleWord);
+
+
+
+
+/** Regular Expressions: Reuse Patterns Using Capture Groups */
+/** You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses. */
+/** To specify where that repeat string will appear, you use a backslash (\) and then a number. This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group. */
+
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+
+/** Using the .match() method on a string will return an array with the string it matches, along with its capture group. */
+
 
 /** Regular Expressions: Match Whitespace */
 /** You can search for whitespace using \s, which is a lowercase s. */
@@ -240,6 +272,102 @@ whiteSpace.match(spaceRegex);
 /** Search for non-whitespace using \S, which is an uppercase s. */
 /** This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. */
 /** You can think of it being similar to the character class [^ \r\t\f\n\v]. */
+
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length; // Returns 32
+
+
+
+
+/** Regular Expressions: Specify Upper and Lower Number of Matches */
+/** You can specify the lower and upper number of patterns with quantity specifiers. */
+/** Quantity specifiers are used with curly brackets ({ and }). */
+/** You put two numbers between the curly brackets - for the lower and upper number of patterns. */
+
+//Change the regex ohRegex to match only 3 to 6 letter h's in the word "Oh no".
+//https://www.freecodecamp.org/forum/t/the-quantity-specifiers-in-regex-is-upper-limit-really-a-limit/252836/6?u=shahid1993
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6}\sno/; // Change this line
+let result = ohRegex.test(ohStr);
+
+
+
+
+/** Regular Expressions: Check for All or None */
+/** You can specify the possible existence of an element with a question mark, ?. */
+/** This checks for zero or one of the preceding element. */ 
+/** You can think of this symbol as saying the previous element is optional. */
+
+// Change the regex favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
+
+let favWord = "favorite";
+let favRegex = /ou?/; // Change this line
+let result = favRegex.test(favWord);
+
+
+
+/** Regular Expressions: Reuse Patterns Using Capture Groups */
+/** You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses. */
+/** To specify where that repeat string will appear, you use a backslash (\) and then a number. This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group. */
+
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+
+/** Using the .match() method on a string will return an array with the string it matches, along with its capture group. */
+
+//Use capture groups in reRegex to match numbers that are repeated only three times in a string, each separated by a space.
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/; // Change this line
+let result = reRegex.test(repeatNum);
+
+
+
+
+/** Regular Expressions: Use Capture Groups to Search and Replace */
+/** You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something. */
+
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+// Returns "The sky is blue."
+
+/** You can also access capture groups in the replacement string with dollar signs ($). */
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+// Returns "Camp Code"
+
+//Write a regex so that it will search for the string "good". Then update the replaceText variable to replace "good" with "okey-dokey".
+let huhText = "This sandwich is good.";
+let fixRegex = /good/; // Change this line
+let replaceText = "okey-dokey"; // Change this line
+let result = huhText.replace(fixRegex, replaceText);
+
+
+
+
+/** Regular Expressions: Remove Whitespace from Start and End */
+
+//Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s*|\s*$/g; // Change this line
+let result = hello.replace(wsRegex,''); // Change this line
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
