@@ -366,8 +366,7 @@ let result = hello.replace(wsRegex,''); // Change this line
 function confirmEnding(str, target) {
   // "Never give up and good luck will find you."
   // -- Falcor
-  let newTarget = target.concat("$");
-  let regExp = new RegExp(newTarget);
+  let myRegExp = new RegExp(target.concat("$"));
   return regExp.test(str);
 }
 
