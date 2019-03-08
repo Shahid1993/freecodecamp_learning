@@ -359,6 +359,23 @@ let result = hello.replace(wsRegex,''); // Change this line
 
 
 
+/** Basic Algorithm Scripting: Confirm the Ending */
+//Check if a string (first argument, str) ends with the given target string (second argument, target).
+//This challenge can be solved with the .endsWith() method, which was introduced in ES2015.
+
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  let newTarget = target.concat("$");
+  let regExp = new RegExp(newTarget);
+  return regExp.test(str);
+}
+
+confirmEnding("Bastian", "n");
+
+
+
+
 
 
 
