@@ -110,3 +110,56 @@ users.hasOwnProperty('Alan');
 'Alan' in users;
 // both return true
 
+
+
+
+/** Iterate Through the Keys of an Object with a for...in Statement */
+/** Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key */
+
+for (let user in users) {
+  console.log(user);
+};
+
+//return the number of users whose online property is set to true.
+
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function countOnline(obj) {
+  // change code below this line
+  let count = 0;
+  for(let user in obj){
+    if(obj[user].online)
+      count++;
+  }
+  return count;
+
+  // change code above this line
+}
+
+console.log(countOnline(users));
+
+
+
+
+/** Generate an Array of All Object Keys with Object.keys() */
+/** Object.keys() : returns an array with strings representing each property in the object. */
+/** There will be no specific order to the entries in the array. */
+
+
