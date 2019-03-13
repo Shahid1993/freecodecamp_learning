@@ -78,4 +78,35 @@ console.log(copyMachine([true, false, true], 2));
 
 
 
-/**
+/** Combine Arrays with the Spread Operator */
+
+let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
+// thatArray now equals ['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']
+
+
+
+
+/** Add Key-Value Pairs to JavaScript Objects */
+/** dot notation */
+/** bracket notation : allows us to pass a variable in to be evaluated as a property name */
+
+
+
+
+/** Use the delete Keyword to Remove Object Properties */
+
+    delete foods.apples;
+
+
+
+
+/** Check if an Object has a Property */
+/** hasOwnProperty() method */
+/** in keyword*/
+
+users.hasOwnProperty('Alan');
+'Alan' in users;
+// both return true
+
