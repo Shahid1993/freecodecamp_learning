@@ -29,6 +29,7 @@ greetings.shift();
 
 /** Remove Items Using splice() */
 /** splice(startIndex, length) : to remove an element/elements from somewhere in the middle */
+/** Add Items Using splice() */
 /** splice(startIndex, length, replaceElement) : to remove an element/elements from somewhere in the middle and replace */
 
 
@@ -37,3 +38,44 @@ let array = ['today', 'was', 'not', 'so', 'great'];
 array.splice(2, 2);
 // remove 2 elements beginning with the 3rd element
 // array now equals ['today', 'was', 'great']
+
+
+
+
+/** Copy Array Items Using slice()  */
+/** slice(), rather than modifying an array, copies, or extracts, a given number of elements to a new array, leaving the array it is called upon untouched. slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index) */
+let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
+
+let todaysWeather = weatherConditions.slice(1, 3);
+// todaysWeather equals ['snow', 'sleet'];
+// weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
+
+
+
+
+/** Copy an Array with the Spread Operator */
+/** ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax. The spread syntax simply looks like this: ... */
+
+let thisArray = [true, true, undefined, false, null];
+let thatArray = [...thisArray];
+// thatArray equals [true, true, undefined, false, null]
+// thisArray remains unchanged, and is identical to thatArray
+
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    // change code below this line
+    newArr.push([...arr]);
+    // change code above this line
+    num--;
+  }
+  return newArr;
+}
+
+// change code here to test different cases:
+console.log(copyMachine([true, false, true], 2));
+
+
+
+
+/**
