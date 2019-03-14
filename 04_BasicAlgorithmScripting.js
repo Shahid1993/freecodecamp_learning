@@ -51,3 +51,66 @@ function largestOfFour(arr) {
 }
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+
+
+
+/** Confirm the Ending */
+
+function confirmEnding(str, target) {
+  let newTarget = target.concat("$");
+  let regExp = new RegExp(newTarget);
+  return regExp.test(str);
+}
+
+// or
+
+function confirmEnding(str, target) {
+  return str.endsWith(target);
+}
+
+// or
+
+function confirmEnding(str, target) {
+  return str.slice(str.length - target.length) == target;
+}
+
+confirmEnding("Bastian", "n");
+
+
+
+
+/** Repeat a String */
+
+function repeatStringNumTimes(str, num) {
+  var accumulatedStr = '';
+  while (num > 0) {
+    accumulatedStr += str;
+    num--;
+  }
+  return accumulatedStr;
+}
+
+// or 
+
+function repeatStringNumTimes(str, num) {
+  if(num < 0)
+    return "";
+  if(num === 1)
+    return str;
+  else
+    return str + repeatStringNumTimes(str, num - 1);
+}
+
+// or
+
+function repeatStringNumTimes(str, num) {
+  return num > 0 ? str.repeat(num) : '';
+}
+
+repeatStringNumTimes("abc", 3);
+
+
+
+
+/** 
