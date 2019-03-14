@@ -152,4 +152,18 @@ booWho(null);
 
 
 
-/**
+/** Title Case a Sentence */
+
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(val){
+    return val.replace(val.charAt(0),val.charAt(0).toUpperCase())
+  }).join(' ');
+}
+
+// or
+
+function titleCase(str) {
+  return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
+}
+
+titleCase("I'm a little tea pot");
