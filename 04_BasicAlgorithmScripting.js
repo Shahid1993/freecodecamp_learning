@@ -167,3 +167,38 @@ function titleCase(str) {
 }
 
 titleCase("I'm a little tea pot");
+
+
+
+
+/** Slice and Splice */
+//Use the array methods slice and splice to copy each element of the first array into the second array, in order.
+//Begin inserting elements at index n of the second array.
+//Return the resulting array. The input arrays should remain the same after the function runs.
+
+function frankenSplice(arr1, arr2, n) {
+  let localarr2 = arr2.slice();
+  for(let i = 0; i<arr1.length; i++){
+    localarr2.splice(n,0,arr1[i]);
+    n++;
+  }
+  return localarr2;
+}
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+
+
+
+/** Falsy Bouncer */
+/** Falsy values in JavaScript are false, null, 0, "", undefined, and NaN. */
+
+function bouncer(arr) {
+  return arr.filter(Boolean);
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+
+
+
+/**  */
