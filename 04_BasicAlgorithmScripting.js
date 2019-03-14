@@ -113,4 +113,43 @@ repeatStringNumTimes("abc", 3);
 
 
 
-/** 
+/** Truncate a String */
+
+function truncateString(str, num) {
+  return str.length <= num ? str : str.slice(0,num).concat('...');
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+
+
+
+/** Finders Keepers */
+
+function findElement(arr, func) {
+
+  for(let i = 0; i < arr.length; i++){
+    console.log(arr[i]);
+    if(func(arr[i]))
+      return arr[i];
+  }
+  return undefined;
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+
+
+
+/** Check if a value is classified as a boolean primitive. */
+
+function booWho(bool) {
+  return typeof bool == 'boolean';
+}
+
+booWho(null);
+
+
+
+
+/**
