@@ -219,3 +219,32 @@ function getIndexToIns(arr, num) {
 // or ===> https://guide.freecodecamp.org/certifications/javascript-algorithms-and-data-structures/basic-algorithm-scripting/where-do-i-belong/
 
 getIndexToIns([40, 60], 50);
+
+
+
+
+/** Mutations */
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array
+
+function mutation(arr) {
+  return arr[1].toLowerCase()
+    .split('')
+    .every(function(letter){
+      return arr[0].toLowerCase().indexOf(letter) != -1;
+    });
+}
+
+// or
+
+function mutation(arr) {
+  var test = arr[1].toLowerCase();
+  var target = arr[0].toLowerCase();
+
+  for(let i = 0; i< test.length; i++){
+    if(target.indexOf(test[i]) == -1)
+      return false;
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
