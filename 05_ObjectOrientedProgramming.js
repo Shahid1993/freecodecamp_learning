@@ -28,4 +28,21 @@ crow instanceof Bird; // => true
 
 
 
+/** Understand Own Properties */
+// name and numLegs are called own properties, because they are defined directly on the instance object. That means that duck and canary each has its own separate copy of these properties.
+// In fact every instance of Bird will have its own copy of these properties.
+
+let ownProps = [];
+
+for (let property in duck) {
+  if(duck.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+
+console.log(ownProps); // prints [ "name", "numLegs" ]
+
+
+
+
 /** 
