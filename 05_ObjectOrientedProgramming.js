@@ -45,4 +45,16 @@ console.log(ownProps); // prints [ "name", "numLegs" ]
 
 
 
+/** Use Prototype Properties to Reduce Duplicate Code */
+// The prototype is an object that is shared among ALL instances
+// Since all instances automatically have the properties on the prototype, think of a prototype as a "recipe" for creating objects.
+// Nearly every object in JavaScript has a prototype property which is part of the constructor function that created it.
+
+Bird.prototype.numLegs = 2;
+console.log(duck.numLegs); // prints 2
+console.log(canary.numLegs); // prints 2
+
+
+
+
 /** 
