@@ -57,4 +57,29 @@ console.log(canary.numLegs); // prints 2
 
 
 
-/** 
+/** Iterate Over All Properties */
+/** own properties and prototype properties. Own properties are defined directly on the object instance itself. And prototype properties are defined on the prototype. */
+
+let ownProps = [];
+let prototypeProps = [];
+
+for (let property in duck) {
+  if(duck.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+
+console.log(ownProps); // prints ["name"]
+console.log(prototypeProps); // prints ["numLegs"]
+
+
+
+
+/** Understand the Constructor Property */
+/** a special constructor property located on the object instances */
+/**  constructor property is a reference to the constructor function that created the instance. */
+/** The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. */
+
+
