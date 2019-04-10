@@ -308,3 +308,87 @@ Bird.prototype.eat = function() {
 
 
 /** Use a Mixin to Add Common Behavior Between Unrelated Objects **/
+//For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.
+
+let flyMixin = function(obj) {
+  obj.fly = function() {
+    console.log("Flying, wooosh!");
+  }
+};
+//The flyMixin takes any object and gives it the fly method.
+
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let plane = {
+  model: "777",
+  numPassengers: 524
+};
+
+flyMixin(bird);
+flyMixin(plane);
+
+
+
+
+/** Use Closure to Protect Properties Within an Object from Being Modified Externally **/
+
+//The simplest way to make properties private is by creating a variable within the constructor function. 
+//This changes the scope of that variable to be within the constructor function versus available globally. 
+//This way, the property can only be accessed and changed by methods also within the constructor function.
+
+function Bird() {
+  let hatchedEgg = 10; // private property
+
+  this.getHatchedEggCount = function() { // publicly available method that a bird object can use
+    return hatchedEgg;
+  };
+}
+let ducky = new Bird();
+ducky.getHatchedEggCount(); // returns 10
+
+//Here getHachedEggCount is a privileged method, because it has access to the private variable hatchedEgg. 
+//This is possible because hatchedEgg is declared in the same context as getHachedEggCount. 
+//In JavaScript, a function always has access to the context in which it was created. This is called closure.
+
+
+
+
+/** Understand the Immediately Invoked Function Expression (IIFE) **/
+
+(function () {
+  console.log("Chirp, chirp!");
+})(); // this is an anonymous function expression that executes right away
+
+
+
+
+/** Use an IIFE to Create a Module **/
+//An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. 
+
+let motionModule = (function () {
+  return {
+    glideMixin: function (obj) {
+      obj.glide = function() {
+        console.log("Gliding on the water");
+      };
+    },
+    flyMixin: function(obj) {
+      obj.fly = function() {
+        console.log("Flying, wooosh!");
+      };
+    }
+  }
+}) (); // The two parentheses cause the function to be immediately invoked
+
+//Note that you have an immediately invoked function expression (IIFE) that returns an object motionModule. 
+//This returned object contains all of the mixin behaviors as properties of the object.
+
+//The advantage of the module pattern is that all of the motion behaviors can be packaged into a single object 
+//that can then be used by other parts of your code. Here is an example using it:
+
+motionModule.glideMixin(duck);
+duck.glide();
+
