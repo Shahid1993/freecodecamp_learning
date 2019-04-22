@@ -186,6 +186,16 @@ function frankenSplice(arr1, arr2, n) {
 }
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
 
+//or
+
+function frankenSplice(arr1, arr2, n) {
+  let combinedArrays = arr2.slice()
+  combinedArrays.splice(n, 0, ...arr1)
+  return combinedArrays
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
 
 
 
